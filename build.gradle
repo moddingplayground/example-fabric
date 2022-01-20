@@ -50,9 +50,7 @@ processResources {
   filesMatching("fabric.mod.json") { expand "version": project.version }
 }
 
-sourceSets.main.resources {
-  srcDirs += "$projectDir/src/generated/resources"
-}
+sourceSets.main.resources { srcDirs += "$projectDir/src/generated/resources" }
 
 tasks.withType(JavaCompile).configureEach { it.options.release = 17 }
 
