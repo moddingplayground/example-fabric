@@ -32,10 +32,10 @@
 
   "environment": "*",
   "entrypoints": {
-    "main":   [ "net.moddingplayground.example.Example" ]
+    "main":     [ "net.moddingplayground.example.Example" ],
+    "toymaker": [ "net.moddingplayground.example.datagen.ExampleToymaker" ]
   },
-  "mixins": [ "datagen.mixins.json", "example.mixins.json" ],
-  "accessWidener": "example.accesswidener",
+  "mixins": [ "example.mixins.json" ],
 
   "depends": {
     "java": ">=17",
