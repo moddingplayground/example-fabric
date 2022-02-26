@@ -3,37 +3,31 @@
 
   "id": "example",
   "version": "${version}",
+  "license": [
+    "MIT (Code)",
+    "All Rights Reserved (Assets)"
+  ],
 
   "name": "Example",
   "icon": "assets/example/icon.png",
   "description": "Example description",
 
-  "license": [
-    "MIT (Code)",
-    "All Rights Reserved (Assets)"
-  ],
   "authors": [
     "Gaetano Russo (Ninni)",
     "Daniel Orr (Andante)"
   ],
-
   "contact": {
     "homepage": "https://moddingplayground.net/example",
     "sources": "https://github.com/moddingplayground/example-fabric",
     "issues": "https://github.com/moddingplayground/example-fabric/issues"
   },
   "custom": {
-    "modmenu": {
-      "links": {
-        "mod.example.contact.discord": "https://discord.moddingplayground.net"
-      }
-    }
+    "modmenu": { "links": { "mod.example.contact.discord": "https://discord.moddingplayground.net" } }
   },
 
   "environment": "*",
   "entrypoints": {
-    "main":     [ "net.moddingplayground.example.Example" ],
-    "toymaker": [ "net.moddingplayground.example.datagen.ExampleToymaker" ]
+    "main": [ "net.moddingplayground.example.impl.ExampleImpl" ]
   },
   "mixins": [ "example.mixins.json" ],
 
@@ -41,6 +35,7 @@
     "java": ">=17",
     "minecraft": ">=1.18",
     "fabricloader": ">=0.12",
-    "fabric": ">=0.46"
+    "fabric": ">=0.46",
+    "frame": ">=0.12.1"
   }
 }
