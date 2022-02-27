@@ -72,15 +72,29 @@ sourceSets.main.resources { srcDirs += 'src/generated/resources' }
 
 /* Resource Processing */
 
+import groovy.json.JsonSlurper
+import groovy.json.JsonOutput
+
 processResources {
   inputs.property 'version', version
   filesMatching('fabric.mod.json') { expand 'version': version }
+
+  doLast {
+    def start = System.currentTimeMillis()
+    def minif = 0
+    def bytes = 0
+    fileTree(dir: outputs.files.asPath, include: '**/*.json').each {
+      File file = it
+      minif++
+      def oldLength = file.length()
+      file.text = JsonOutput.toJson(new JsonSlurper().parse(file))
+      bytes += oldLength - file.length()
+    }
+    println('Minified ' + minif + ' json files. Saved ' + bytes + ' bytes. Took ' + (System.currentTimeMillis() - start) + 'ms.')
+  }
 }
 
-jar {
-  from('LICENSE') { rename { "${it}_${project.mod_id}" } }
-  from('LICENSE_ASSETS') { rename { "${it}_${project.mod_id}" } }
-}
+jar { from('README.md', 'LICENSE', 'LICENSE_ASSETS') exclude('.cache') }
 
 /* Publishing */
 
