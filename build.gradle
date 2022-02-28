@@ -28,12 +28,12 @@ repositories {
   }
 
   maven {
-    name = "Modding Playground"
+    name = 'Modding Playground'
     url  = 'https://raw.githubusercontent.com/moddingplayground/maven/main/'
   }
 
   maven {
-    name = "Shedaniel"
+    name = 'Shedaniel'
     url  = 'https://maven.shedaniel.me/'
   }
 }
