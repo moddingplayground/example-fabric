@@ -1,6 +1,4 @@
-buildscript {
-  dependencies { classpath 'org.kohsuke:github-api:1.301' }
-}
+buildscript { dependencies { classpath 'org.kohsuke:github-api:1.301' } }
 
 plugins {
   id 'java-library'
@@ -60,6 +58,8 @@ dependencies {
 
 /* Data Generation */
 
+def dataOutput = 'src/generated/resources'
+
 loom {
   runtimeOnlyLog4j = true
 
@@ -69,22 +69,24 @@ loom {
       vmArgs(
               "-Dtoymaker.datagen=true",
               "-Dtoymaker.datagen.modid=${project.mod_id}",
-              "-Dtoymaker.datagen.path=\"${project.file("src/generated/resources")};${project.file("$buildDir/resources/main")}\""
+              "-Dtoymaker.datagen.path=\"${project.file(dataOutput)};${project.file("$buildDir/resources/main")}\""
       )
     }
   }
 }
 
-sourceSets.main.resources { srcDirs += 'src/generated/resources' }
+sourceSets.main.resources { srcDirs += dataOutput }
 
 /* Resource Processing */
 
 import groovy.json.*
 processResources {
+  // populate fabric.mod.json with defined version property
   inputs.property 'version', version
   filesMatching('fabric.mod.json') { expand 'version': version }
 
   doLast {
+    // minify json files
     def start = System.currentTimeMillis()
     def minif = 0
     def bytes = 0
@@ -99,6 +101,7 @@ processResources {
   }
 }
 
+// add/remove files in jar
 jar { from('README.md', 'LICENSE', 'LICENSE_ASSETS') exclude('.cache') }
 
 /* Publishing */
