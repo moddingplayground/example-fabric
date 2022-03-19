@@ -28,11 +28,6 @@ group = project.maven_group
 
 repositories {
   maven {
-    name = 'Terraformers'
-    url  = 'https://maven.terraformersmc.com/releases/'
-  }
-
-  maven {
     name = 'Modding Playground'
     url  = 'https://raw.githubusercontent.com/moddingplayground/maven/main/'
   }
@@ -40,6 +35,11 @@ repositories {
   maven {
     name = 'Shedaniel'
     url  = 'https://maven.shedaniel.me/'
+  }
+
+  maven {
+    name = 'Terraformers'
+    url  = 'https://maven.terraformersmc.com/releases/'
   }
 }
 
