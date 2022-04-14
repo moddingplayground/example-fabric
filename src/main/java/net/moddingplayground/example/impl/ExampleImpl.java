@@ -5,18 +5,18 @@ import net.moddingplayground.example.api.Example;
 import net.moddingplayground.frame.api.util.InitializationLogger;
 
 public final class ExampleImpl implements Example, ModInitializer {
-	private final InitializationLogger initializer;
+    private final InitializationLogger initializer;
 
-	public ExampleImpl() {
-		this.initializer = new InitializationLogger(LOGGER, MOD_NAME);
-	}
+    public ExampleImpl() {
+        this.initializer = new InitializationLogger(LOGGER, MOD_NAME);
+    }
 
-	@Override
-	public void onInitialize() {
-		this.initializer.start();
+    @Override
+    public void onInitialize() {
+        this.initializer.start();
 
-		//
+        //
 
-		this.initializer.finish();
-	}
+        this.initializer.finish();
+    }
 }
