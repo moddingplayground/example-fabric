@@ -36,6 +36,6 @@
     "minecraft": ">=1.18",
     "fabricloader": ">=0.13",
     "fabric": ">=0.51",
-    "frame": ">=0.16"
+    "frame": ">=0.17"
   }
 }
