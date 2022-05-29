@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "package": "net.moddingplayground.example.mixin",
   "mixins": [],
+  "client": [],
   "injectors": {
     "defaultRequire": 1
   }
