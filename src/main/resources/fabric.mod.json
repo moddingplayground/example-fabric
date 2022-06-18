@@ -33,9 +33,9 @@
 
   "depends": {
     "java": ">=17",
-    "minecraft": ">=1.19-beta",
+    "minecraft": ">=1.19",
     "fabricloader": ">=0.14",
-    "fabric": ">=0.53",
+    "fabric": ">=0.56",
     "frame": ">=0.18"
   }
 }
